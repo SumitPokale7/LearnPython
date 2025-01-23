@@ -1,4 +1,4 @@
-print(f"Welcome to the Band Name Generator!")
+print("Welcome to the Band Name Generator!")
 
 city = input(str("Which City did you grow up in?\n"))
 
