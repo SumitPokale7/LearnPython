@@ -33,33 +33,48 @@ t.setheading(0)
 t.speed(0)
 
 
-def draw_dots():
-    """Draw a row of 10 dots with random colors."""
-    for _ in range(10):
-        t.forward(20)
-        t.dot(20, random.choice(colors))
-        t.forward(20)
+# def draw_dots():
+#     """Draw a row of 10 dots with random colors."""
+#     for _ in range(10):
+#         t.forward(20)
+#         t.dot(20, random.choice(colors))
+#         t.forward(20)
 
 
-def reset_position():
-    """Move turtle up to start a new row."""
-    t.penup()
-    t.forward(10)
-    t.setheading(90)
-    t.forward(30)
-    t.setheading(180)
+# def reset_position():
+#     """Move turtle up to start a new row."""
+#     t.penup()
+#     t.forward(10)
+#     t.setheading(90)
+#     t.forward(30)
+#     t.setheading(180)
 
-    for _ in range(10):
-        t.forward(41)
+#     for _ in range(10):
+#         t.forward(41)
 
-    t.setheading(0)
+#     t.setheading(0)
 
-# Draw multiple rows
-for _ in range(5):
-    draw_dots()
-    reset_position()
-    draw_dots()
-    reset_position()
+# # Draw multiple rows
+# for _ in range(5):
+#     draw_dots()
+#     reset_position()
+#     draw_dots()
+#     reset_position()
 
 
-t.exitonclick()
+# Simple Version
+number_of_dots = 100
+
+for dot_count in range(1, number_of_dots + 1):
+    t.dot(20, random.choice(colors))
+    t.forward(50)
+
+    if dot_count % 10 == 0:
+        t.setheading(90)
+        t.forward(50)
+        t.setheading(180)
+        t.forward(500)
+        t.setheading(0)
+
+
+s.exitonclick()
