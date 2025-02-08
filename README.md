@@ -1,2 +1,2 @@
 ## Why this repo exist! 
-This repository contains small programs I add daily as a way to stay consistent with coding. Not necessarily about learning Python, but more about keeping up with a daily coding habit.
+This repository contains small programs I added daily as a way to stay consistent with coding. Not necessarily about learning Python, but more about keeping up with a daily coding habit.
