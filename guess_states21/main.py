@@ -18,10 +18,7 @@ while len(guessed_states) < 28:
     all_states = data.State.to_list()
 
     if answer_state == "Exit":
-        missing_state = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_state.append(state)
+        missing_state = [state for state in all_states if state not in guessed_states]
         missing_data = pandas.DataFrame(missing_state)
         missing_data.to_csv("States_Not_Guessed.csv")
         break
