@@ -1,8 +1,6 @@
 from tkinter import *
-from tkinter import messagebox
 import pandas
 import random
-
 
 
 # ---------------------------- CONSTANTS -------------------------------- #
@@ -32,7 +30,6 @@ def is_known():
     next_card()
 
 
-
 # ---------------------------- NEXT CARD -------------------------------- #
 def next_card():
     global CURRENT_CARD, FLIP_TIMER
@@ -46,7 +43,6 @@ def next_card():
     FLIP_TIMER = window.after(3000, func=flip_card)
 
 
-
 # ---------------------------- CHANGE CARDS --------------------------- #
 def flip_card():
     canvas.itemconfig(cards_title, text="English", fill="white")
@@ -58,6 +54,7 @@ def flip_card():
 window = Tk()
 window.title("Flash Cards")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
+
 
 FLIP_TIMER = window.after(3000, func=flip_card)
 
@@ -83,8 +80,6 @@ unkown_button.grid(row=1, column=0)
 check_img = PhotoImage(file=r"E:\\College\\Python\\flash-card26\\images\\right.png")
 know_button = Button(image=check_img, highlightthickness=0, command=is_known)
 know_button.grid(row=1, column=1)
-
-
 
 
 next_card()
