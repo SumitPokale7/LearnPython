@@ -10,6 +10,7 @@ IATA_ENDPOINT = "https://test.api.amadeus.com/v1/reference-data/locations/cities
 FLIGHT_ENDPOINT = "https://test.api.amadeus.com/v2/shopping/flight-offers"
 TOKEN_ENDPOINT = "https://test.api.amadeus.com/v1/security/oauth2/token"
 
+
 class FlightSearch:
     def __init__(self):
         """
@@ -98,11 +99,12 @@ class FlightSearch:
         return code
 
 
-    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
+    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time, is_direct=True):
         """
         Searches for flight options between two cities on specified departure and return dates
-        using theAmadeus API.
-        Parameters
+        using the Amadeus API.
+        Parameters:
+            is_direct (bool): True for non-stop flights.
             origin_city_code (str): The IATA code of the departure city.
             destination_city_code (str): The IATA code of the destination city.
             from_time (datetime): The departure date.
@@ -118,13 +120,14 @@ class FlightSearch:
 
         # print(f"Using this token to check_flights() {self._token}")
         headers = {"Authorization": f"Bearer {self._token}"}
+        # nonStop must be "true" or "false" string. Python booleans won't work
         query = {
             "originLocationCode": origin_city_code,
             "destinationLocationCode": destination_city_code,
             "departureDate": from_time.strftime("%Y-%m-%d"),
             "returnDate": to_time.strftime("%Y-%m-%d"),
             "adults": 1,
-            "nonStop": "true",
+            "nonStop": "true" if is_direct else "false",
             "currencyCode": "GBP",
             "max": "10",
         }
